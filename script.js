@@ -1,20 +1,69 @@
 // Interactive & CRO Script for Beaver Construction Specialists Ltd.
 
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Navbar Scrolled Effect
+    // 1. Smart Header & Scrolled Effect Controller
     const navbar = document.querySelector('.navbar');
+    const navLinks = document.querySelector('.nav-links');
+    let lastScrollY = window.scrollY || 0;
+    let isMobile = window.innerWidth <= 767;
+
+    // Track responsive viewport changes
+    window.addEventListener('resize', () => {
+        isMobile = window.innerWidth <= 767;
+        if (!isMobile && navbar) {
+            navbar.classList.remove('header-hidden');
+        }
+    }, { passive: true });
+
+    // Scroll listener with direction detection
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 30) {
+        if (!navbar) return;
+        const currentScrollY = window.scrollY;
+
+        // Navbar shadow and background depth
+        if (currentScrollY > 30) {
             navbar.classList.add('scrolled');
         } else {
             navbar.classList.remove('scrolled');
         }
-    });
 
-    // 2. Mobile Menu Toggle
+        // Smart Header behavior: strictly active on mobile devices (< 768px)
+        if (isMobile) {
+            const scrollDelta = currentScrollY - lastScrollY;
+            const isMenuOpen = navLinks && navLinks.classList.contains('active');
+
+            // Keep header visible at the top of the page
+            if (currentScrollY <= 15) {
+                navbar.classList.remove('header-hidden');
+            } else if (!isMenuOpen && Math.abs(scrollDelta) > 6) {
+                if (scrollDelta > 0 && currentScrollY > 60) {
+                    // Scrolling DOWN: smoothly slide header up out of view
+                    navbar.classList.add('header-hidden');
+                } else if (scrollDelta < 0) {
+                    // Scrolling UP: smoothly reveal header
+                    navbar.classList.remove('header-hidden');
+                }
+            }
+        } else {
+            // Desktop mode: ensure header is never hidden
+            navbar.classList.remove('header-hidden');
+        }
+
+        lastScrollY = Math.max(0, currentScrollY);
+    }, { passive: true });
+
+    // 2. Mobile Menu Toggle & Auto-Close on Navigation
     const mobileToggle = document.querySelector('.mobile-toggle');
-    const navLinks = document.querySelector('.nav-links');
     if (mobileToggle && navLinks) {
+        const closeMobileMenu = () => {
+            navLinks.classList.remove('active');
+            const icon = mobileToggle.querySelector('i');
+            if (icon) {
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            }
+        };
+
         mobileToggle.addEventListener('click', () => {
             navLinks.classList.toggle('active');
             const icon = mobileToggle.querySelector('i');
@@ -22,6 +71,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 icon.classList.toggle('fa-bars');
                 icon.classList.toggle('fa-xmark');
             }
+        });
+
+        // Close menu automatically when any nav link is clicked
+        const menuLinks = navLinks.querySelectorAll('a');
+        menuLinks.forEach(link => {
+            link.addEventListener('click', closeMobileMenu);
         });
     }
 

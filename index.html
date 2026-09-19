@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="description" content="Beaver Construction Specialists Ltd. - Canada's leading provider for permanent concrete repair, industrial epoxy coatings, waterproofing, and civil infrastructure solutions.">
     <title>Beaver Construction Specialists Ltd. | Permanent Concrete Repair & Protection Canada</title>
     
@@ -128,25 +128,25 @@
                 <h3 class="hero-form-title" data-en="Request a Free Quote" data-fr="Demandez un Devis Gratuit">Request a Free Quote</h3>
                 <p class="hero-form-sub" data-en="Fast 24-Hour Inspection Response" data-fr="Réponse et Inspection en 24h">Fast 24-Hour Inspection Response</p>
 
-                <form class="lead-form">
+                <form class="lead-form" id="heroLeadForm">
                     <div class="form-group">
-                        <label class="form-label" data-en="Full Name *" data-fr="Nom Complet *">Full Name *</label>
-                        <input type="text" class="form-input" placeholder="e.g. Robert Smith" data-en="e.g. Robert Smith" data-fr="ex. Robert Smith" required>
+                        <label class="form-label" for="heroName" data-en="Full Name *" data-fr="Nom Complet *">Full Name *</label>
+                        <input type="text" id="heroName" name="name" class="form-input" placeholder="e.g. Robert Smith" autocomplete="name" data-en="e.g. Robert Smith" data-fr="ex. Robert Smith" required>
                     </div>
 
                     <div class="form-group">
-                        <label class="form-label" data-en="Phone / WhatsApp *" data-fr="Téléphone / WhatsApp *">Phone / WhatsApp *</label>
-                        <input type="tel" class="form-input" placeholder="+1 (555) 019-2834" required>
+                        <label class="form-label" for="heroPhone" data-en="Phone / WhatsApp *" data-fr="Téléphone / WhatsApp *">Phone / WhatsApp *</label>
+                        <input type="tel" id="heroPhone" name="phone" class="form-input" placeholder="+1 (555) 019-2834" autocomplete="tel" inputmode="tel" required>
                     </div>
 
                     <div class="form-group">
-                        <label class="form-label" data-en="Email Address *" data-fr="Adresse courriel *">Email Address *</label>
-                        <input type="email" class="form-input" placeholder="name@company.ca" required>
+                        <label class="form-label" for="heroEmail" data-en="Email Address *" data-fr="Adresse courriel *">Email Address *</label>
+                        <input type="email" id="heroEmail" name="email" class="form-input" placeholder="name@company.ca" autocomplete="email" inputmode="email" required>
                     </div>
 
                     <div class="form-group">
-                        <label class="form-label" data-en="Service Needed *" data-fr="Service Requis *">Service Needed *</label>
-                        <select class="form-select" required>
+                        <label class="form-label" for="heroService" data-en="Service Needed *" data-fr="Service Requis *">Service Needed *</label>
+                        <select class="form-select" id="heroService" name="service" required>
                             <option value="" data-en="-- Select Service --" data-fr="-- Sélectionner Service --">-- Select Service --</option>
                             <option value="repair" data-en="Concrete Repair & Spalling" data-fr="Réparation de Béton et Écaillage">Concrete Repair & Spalling</option>
                             <option value="epoxy" data-en="Epoxy & Garage Floor Coatings" data-fr="Revêtements Époxy et Garage">Epoxy & Garage Floor Coatings</option>
@@ -155,7 +155,7 @@
                         </select>
                     </div>
 
-                    <button type="submit" class="btn btn-primary" style="width: 100%;" data-en="<i class='fa-solid fa-paper-plane'></i> Submit Request" data-fr="<i class='fa-solid fa-paper-plane'></i> Envoyer la Demande">
+                    <button type="submit" class="btn btn-primary btn-submit-lead" style="width: 100%;" data-en="<i class='fa-solid fa-paper-plane'></i> Submit Request" data-fr="<i class='fa-solid fa-paper-plane'></i> Envoyer la Demande">
                         <i class="fa-solid fa-paper-plane"></i> Submit Request
                     </button>
                 </form>
@@ -370,7 +370,7 @@
                         <i class="fa-solid fa-check-double"></i> 
                         <span data-en="Proven Results" data-fr="Résultats Prouvés">Proven Results</span>
                     </div>
-                    <h2 style="font-size: 2.2rem; margin-bottom: 1rem; color: var(--text-white);" data-en="Flawless Transformation & Defect Remediation" data-fr="Transformation Impeccable et Réparation">
+                    <h2 class="comparison-title" data-en="Flawless Transformation & Defect Remediation" data-fr="Transformation Impeccable et Réparation">
                         Flawless Transformation & Defect Remediation
                     </h2>
                     <p style="color: var(--text-muted); margin-bottom: 1.8rem; font-size: 1.1rem;" data-en="We eliminate surface delamination, repair honeycomb voids, seal structural thermal cracks, and restore complete monolithic integrity to your concrete structures." data-fr="Nous éliminons la délaminage de surface, réparons les vide de nids d'abeille et scellons les fissures.">
@@ -518,30 +518,30 @@
             </div>
 
             <!-- Main Lead Form -->
-            <form class="quote-form lead-form">
-                <h3 style="font-size: 1.5rem; margin-bottom: 1.5rem; text-align: center;" data-en="Get a Formal Quote" data-fr="Obtenir un Devis Formel">Get a Formal Quote</h3>
+            <form class="quote-form lead-form" id="mainQuoteForm">
+                <h3 class="quote-form-heading" style="font-size: 1.5rem; margin-bottom: 1.5rem; text-align: center;" data-en="Get a Formal Quote" data-fr="Obtenir un Devis Formel">Get a Formal Quote</h3>
 
                 <div class="form-group">
-                    <label class="form-label" data-en="Full Name *" data-fr="Nom Complet *">Full Name *</label>
-                    <input type="text" class="form-input" placeholder="e.g. Sarah Jenkins" required>
+                    <label class="form-label" for="quoteName" data-en="Full Name *" data-fr="Nom Complet *">Full Name *</label>
+                    <input type="text" id="quoteName" name="name" class="form-input" placeholder="e.g. Sarah Jenkins" autocomplete="name" required>
                 </div>
 
                 <div class="form-group">
-                    <label class="form-label" data-en="Phone / WhatsApp *" data-fr="Téléphone / WhatsApp *">Phone / WhatsApp *</label>
-                    <input type="tel" class="form-input" placeholder="+1 (555) 019-2834" required>
+                    <label class="form-label" for="quotePhone" data-en="Phone / WhatsApp *" data-fr="Téléphone / WhatsApp *">Phone / WhatsApp *</label>
+                    <input type="tel" id="quotePhone" name="phone" class="form-input" placeholder="+1 (555) 019-2834" autocomplete="tel" inputmode="tel" required>
                 </div>
 
                 <div class="form-group">
-                    <label class="form-label" data-en="Corporate Email *" data-fr="Courriel Professionnel *">Corporate Email *</label>
-                    <input type="email" class="form-input" placeholder="name@company.ca" required>
+                    <label class="form-label" for="quoteEmail" data-en="Corporate Email *" data-fr="Courriel Professionnel *">Corporate Email *</label>
+                    <input type="email" id="quoteEmail" name="email" class="form-input" placeholder="name@company.ca" autocomplete="email" inputmode="email" required>
                 </div>
 
                 <div class="form-group">
-                    <label class="form-label" data-en="Project Scope & Notes" data-fr="Détails du Projet">Project Scope & Notes</label>
-                    <textarea class="form-textarea" rows="3" placeholder="Describe square footage, surface condition, or timeline requirements..." data-en="Describe square footage, surface condition, or timeline requirements..." data-fr="Décrivez la superficie, l'état de la surface ou les échéanciers..."></textarea>
+                    <label class="form-label" for="quoteMessage" data-en="Project Scope & Notes" data-fr="Détails du Projet">Project Scope & Notes</label>
+                    <textarea id="quoteMessage" name="message" class="form-textarea" rows="3" placeholder="Describe square footage, surface condition, or timeline requirements..." data-en="Describe square footage, surface condition, or timeline requirements..." data-fr="Décrivez la superficie, l'état de la surface ou les échéanciers..."></textarea>
                 </div>
 
-                <button type="submit" class="btn btn-primary" style="width: 100%;" data-en="<i class='fa-solid fa-paper-plane'></i> Submit Formal Request" data-fr="<i class='fa-solid fa-paper-plane'></i> Soumettre la Demande Formelle">
+                <button type="submit" class="btn btn-primary btn-submit-quote" style="width: 100%;" data-en="<i class='fa-solid fa-paper-plane'></i> Submit Formal Request" data-fr="<i class='fa-solid fa-paper-plane'></i> Soumettre la Demande Formelle">
                     <i class="fa-solid fa-paper-plane"></i> Submit Formal Request
                 </button>
             </form>
@@ -613,6 +613,18 @@
             </div>
         </div>
     </footer>
+
+    <!-- Mobile Sticky Bottom Action Bar (CRO Optimized for Smartphones < 768px) -->
+    <aside class="sticky-bottom-bar" id="mobileStickyBar" aria-label="Mobile Quick Actions">
+        <a href="tel:+18005552328" class="sticky-btn sticky-btn-call" id="stickyCallBtn" data-en="<i class='fa-solid fa-phone'></i> Call Now" data-fr="<i class='fa-solid fa-phone'></i> Appeler">
+            <i class="fa-solid fa-phone"></i>
+            <span>Call Now</span>
+        </a>
+        <a href="https://wa.me/18005552328?text=Hello%20Beaver%20Construction,%20I%20would%20like%20to%20request%20a%20quote" target="_blank" rel="noopener" class="sticky-btn sticky-btn-whatsapp" id="stickyWhatsAppBtn" data-en="<i class='fa-brands fa-whatsapp'></i> WhatsApp" data-fr="<i class='fa-brands fa-whatsapp'></i> WhatsApp">
+            <i class="fa-brands fa-whatsapp"></i>
+            <span>WhatsApp</span>
+        </a>
+    </aside>
 
     <!-- Image Lightbox Modal -->
     <div class="modal-overlay">
